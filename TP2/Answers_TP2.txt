@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%% QUESTIONS DEVOIR N°2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+JOURDAN Pierre-Eliot 1SN
+
+1)1) Comment sont obtenus les instants optimaux d’échantillonnage ?
+Sur chacun des tracés de g (réponse impulsionnelle globale de la chaine de transmission) on identifie un maximum atteint pour une abscisse correspondant à l'instant t0 pour lequel il n'y aura pas d'interférences entre symboles.
+Sur le diagramme de l'oeil tracé, nous pouvons observer que les lignes du signal se rejoignent en un certain point dont l'abscisse est en effet l'indice n0 optimal (où l'on distingue bien les bits 0 et 1).
+D'où le choix dans le script matlab des indices n0_1 = t0_1/Te = Ns = 8 (t0_1 = Ts) et n0_2 = 1 (t0_2 = Te).
+
+
+1)2) Quand on échantillonne à n0 + mNs (n0 = 3), on obtient des taux d'erreur binaire non nuls en effet, nous ne sommes justement plus sur le n0 optimal : on échantillonne sur un endroit avec des interférences ce qui, pour un canal, peut créer des erreurs. On se retrouve sur la 2e moitié du diagramme de l'oeil et on échantillonne donc au niveau du bit suivant. Or, il n'y a pas d'erreur si le bit suivant est égal au bit précédent => probabilité qui vaut 1/2.
+C'est pourquoi on obtient tx_erreur_binaire_1 et tx_erreur_binaire_2 environ égaux à 0.5.
+
+
+
+
+
+2)1) Le critère de Nyquist peut-il être vérifié sur cette chaine de transmission ? Expliquez votre réponse avec la courbe g. 
+BW = 4000 Hz
+Si la courbe du canal de propagation (Hc(f)) coupe la réponse en fréquence globale (H(f) x Hr(f)) alors le critère de Nyquist (en fréquence) ne sera pas respecté. Sur le tracé de la chaine de transmission 1 (figure 7), le lobe principal n'est pas affecté par la réponse fréquentielle du canal, le canal a donc peu d'effet sur cette chaine de transmission et on peut donc considérer que le critère de Nyquist est respecté. Sur le 2e tracé (figure 8), on remarque que la réponse impulsionnelle globale g2 de la chaine 2 n'est pas impactée par le canal d'où le respect, là encore, du critère de Nyquist.
+
+BW = 1000 Hz
+Le critère de Nyquist n'est respecté sur aucune des 2 chaines de transmission, en effet dans chacun des cas les courbes |H(f)Hr(f)| sont clairement déformées par le canal de transmission.
+
+
+2)2) A partir du diagramme de l’oeil tracé, pouvez-vous dire si le critère de Nyquist peut être respecté sur cette chaine de transmission?  Expliquez votre réponse.
+BW = 4000 Hz
+Le critère de Nyquist est respecté dans un diagramme de l'oeil si on identifie un indice n0 (ou instant t0) où l'on distingue les bits 0 et 1 émis.
+Pour la chaine de transmission 1, cet indice vaut n0_1 = 8 par lecture graphique du diagramme de l'oeil, et vaut n0_2 = 1 pour la 2e chaine. Dans ces 2 cas, le critère de Nyquist est respecté.
+
+BW = 1000 Hz
+Le critère de Nyquist n'est en effet pas respecté sur les 2 chaines de transmission car il est impossible d'identifier un indice optimal n0 pour lequel on pourrait distinguer les bits 0 et 1 émis (énormément de lignes qui ne se rejoignent pas).
+
+
+
+
+
+
